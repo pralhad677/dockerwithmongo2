@@ -1,0 +1,49 @@
+version: "3.8"
+services: 
+  app:
+    container_name: docker-node-mongo2
+    restart: always
+    build: 
+      context: .
+      # args: 
+      #   NODE_ENV : production
+      # dockerfile ma rakheko env lai kasari use garne aayena my lord
+      # args:
+      #   - GIT_TOKEN=$GIT_TOKEN
+      #   - DB_PWD=$DB_PWD
+    ports: 
+      - '1111:4444'
+    networks:
+      - mybirdge2 
+    volumes: 
+      - C:\Users\jacob\dockerwithmongo2:/app:ro 
+      #  this is anonymous volum which persist only on conatiner and gets deleted when container is removed
+      - /app/node_modules  
+    depends_on: 
+      - mongo2
+    # environment: 
+      #  ya nira portspecify grda dockerfile ma env ko through set ko PORT overrride hunxa
+      # PORT : '4444'
+     
+  mongo2:
+    container_name: mongo2
+    # environment: 
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+   
+      
+
+    image: mongo
+    ports: 
+      - '27017:27017'
+    networks:
+      - mybirdge2
+    volumes: 
+      - mongo-db2:/data/db
+  
+networks: 
+  mybirdge2:
+    driver: bridge
+
+volumes:
+  mongo-db2:    
