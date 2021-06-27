@@ -22,6 +22,7 @@ exports.post=CatchAsync(async(req,res,next)=>{
 exports.update=CatchAsync(async(req,res,next)=>{
     //update chai last ko vairxa
     const {id} = req.query
+    console.log('id',id)
     
 if( mongoose.Types.ObjectId.isValid(id) ) console.log( 'true');
     const data = await Model.findByIdAndUpdate({_id:id},{age:23},{new:true,runValidators:true})
