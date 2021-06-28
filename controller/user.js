@@ -28,7 +28,7 @@ if( mongoose.Types.ObjectId.isValid(id) ) console.log( 'true');
     const data = await Model.findByIdAndUpdate({_id:id},{age:23},{new:true,runValidators:true})
     console.log(data)
     res.status(200).json({
-        success:true,
+        success:true, 
         data
     })
 })
