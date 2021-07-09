@@ -41,7 +41,7 @@ app.listen(server,()=>{
 })
 .catch(err=>{
     console.log(err)
-    // setTimeout(()=>{
+    // setTimeout(()=>{ 
     //     connectionRetry()
     // },2000)
 })

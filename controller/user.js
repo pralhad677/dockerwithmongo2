@@ -19,6 +19,20 @@ exports.post=CatchAsync(async(req,res,next)=>{
         data1 
     })
 })
+exports.post1=CatchAsync(async(req,res,next)=>{
+    
+    const {name} = req.body
+    // console.log(name) 
+    const data = new Model({
+        name
+       
+    }) 
+    const data1 = await data.save()
+    res.status(201).json({
+        message:'success',
+        data1 
+    })
+})
 exports.update=CatchAsync(async(req,res,next)=>{
     //update chai last ko vairxa
     const {id} = req.query
