@@ -12,7 +12,7 @@ services:
       #   - GIT_TOKEN=$GIT_TOKEN
       #   - DB_PWD=$DB_PWD
     ports: 
-      - '1111:4444'
+      - '1111:${PORT}'
     networks:
       - mybirdge2 
     volumes: 
@@ -23,11 +23,11 @@ services:
       - mongo2
     # environment: 
       #  ya nira portspecify grda dockerfile ma env ko through set ko PORT overrride hunxa
-      # PORT : '4444'
+      # PORT : $PORT
      
   mongo2:
     container_name: mongo2
-    # environment: 
+    environment: 
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: example
    

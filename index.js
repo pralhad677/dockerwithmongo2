@@ -19,7 +19,7 @@ if(process.env.NODE_ENV === 'development'){
     console.log('development mode')
 }
 else {
-    console.log('production mode')
+    console.log('production mode') 
 }
 
  
@@ -31,14 +31,14 @@ app.use('/',router)
  
 function connectionRetry(){
 // root:example@   ?authSource=admin' 
-
+ 
 mongoose.connect('mongodb://root:example@mongo2:27017/docker2?authSource=admin',{useNewUrlParser: true,useFindAndModify:false,useUnifiedTopology: true })
 // mongoose.connect('mongodb://localhost:27017/docker2',{useNewUrlParser: true,useUnifiedTopology: true })
 .then(()=>{
-app.listen(server,()=>{ 
+app.listen(server,()=>{   
         console.log(`connected to port at ${process.env.PORT}`)   
     }) 
-})
+}) 
 .catch(err=>{
     console.log(err)
     // setTimeout(()=>{ 
